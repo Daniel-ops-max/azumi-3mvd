@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quieres ser mi novia?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce0ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: #ff80ab;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #ff4073;
+      font-family: 'Georgia', serif;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 20px;
+      background-color: #ff4e5b;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #f2454b;
+      transform: scale(1.05);
+    }
+
+    .message {
+      display: none;
+      font-size: 24px;
+      color: #ffb0d7;
+      margin-top: 20px;
+      font-family: 'Georgia', serif;
+    }
+
+    .retry-message {
+      font-size: 20px;
+      color: #ff4073;
+      margin-top: 20px;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .hidden-section {
+      display: none;
+    }
+
+    .no-button {
+      position: absolute;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Una declaración muy especial para ti...</h1>
+    <p class="question">
+      En este día tan especial quiero decirte algo muy importante. <br>
+      Me importa profundamente tu bienestar y quiero ser yo quien esté a tu lado, <br>
+      tanto en las buenas como en las malas. Siempre juntos. <br>
+      Más aún cuando las cosas se pongan difíciles, no te dejaré. <br>
+      Es por eso que te quiero preguntar, ¿quieres ser mi novia?
+    </p>
+
+    <div class="buttons">
+      <!-- Botón Sí -->
+      <button onclick="respuesta('si')">Sí</button>
+    </div>
+
+    <div class="buttons">
+      <!-- Botón No -->
+      <button id="noButton" class="no-button" onclick="moverNo()">No</button>
+    </div>
+
+    <!-- Mensaje de agradecimiento -->
+    <div id="mensaje" class="message">
+      <p>Gracias por permitirme ser quien esté a tu ladito, cariño. Te amo con todo mi corazoncito <3</p>
+    </div>
+  </div>
+
+  <script>
+    let noCount = 0; // Contador para los clics en "No"
+
+    // Función para mover el botón "No"
+    function moverNo() {
+      noCount++;
+      const noButton = document.getElementById('noButton');
+      const maxMovements = 10; // Número máximo de veces que se moverá el botón
+      const container = document.querySelector('.container');
+
+      // Mueve el botón "No" a una posición aleatoria
+      const randomX = Math.floor(Math.random() * (container.clientWidth - noButton.offsetWidth));
+      const randomY = Math.floor(Math.random() * (container.clientHeight - noButton.offsetHeight));
+
+      // Cambiar la posición del botón
+      noButton.style.left = `${randomX}px`;
+      noButton.style.top = `${randomY}px`;
+
+      // Si el botón se ha movido 10 veces, preguntar de nuevo
+      if (noCount >= maxMovements) {
+        setTimeout(() => {
+          document.querySelector('.question').innerText = "Ahora que hemos pasado por todo esto... ¿quieres ser mi novia?";
+          noButton.style.display = 'none'; // Ocultar el botón "No"
+        }, 500); // Esperar un poco antes de preguntar de nuevo
+      }
+    }
+
+    function respuesta(opcion) {
+      const mensaje = document.getElementById('mensaje');
+      const pregunta = document.querySelector('.question');
+      const buttons = document.querySelector('.buttons');
+
+      if (opcion === 'si') {
+        mensaje.style.display = 'block'; // Mostrar mensaje de agradecimiento
+        pregunta.style.display = 'none'; // Ocultar la pregunta
+        buttons.style.display = 'none'; // Ocultar los botones
+      }
+    }
+  </script>
+
+</body>
+</html>

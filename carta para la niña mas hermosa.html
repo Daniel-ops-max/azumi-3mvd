@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para Azumi</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce0ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-image: url('https://www.transparenttextures.com/patterns/soft-wallpaper.png');
+      background-size: cover;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    button {
+      padding: 20px 40px;
+      font-size: 22px;
+      background-color: #ff7ab2;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background-color: #ff3d70;
+      transform: scale(1.05);
+    }
+
+    .carta {
+      display: none;
+      width: 500px;
+      margin-top: 20px;
+      padding: 30px;
+      border-radius: 20px;
+      background-image: url('https://i.pinimg.com/originals/a9/5b/6e/a95b6e4c64383de4ea9b726e3d937fd0.jpg');
+      background-size: cover;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      color: white;
+      position: relative;
+    }
+
+    .carta h1 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #ffb0d7;
+      font-family: 'Georgia', serif;
+    }
+
+    .carta p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .carta .corazon {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
+    }
+
+    .carta .footer {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 25px;
+      color: #ffe6f2;
+    }
+
+    .button-container {
+      margin-top: 40px;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="button-container">
+      <button onclick="abrirCarta()">Descubre mi carta 💌</button>
+    </div>
+
+    <div class="carta" id="carta">
+      <div class="corazon">💖</div>
+      <h1>Querida Azumi</h1>
+
+      <p>Hoy es un día especial para mí, porque finalmente voy a conocerte en persona y no puedo evitar sentirme feliz y emocionado. Desde que vi la foto de esos lindos ojitos, me cautivaron profundamente, hay algo en ellos que transmiten tanta dulzura, ternura y una chispa que me hace sonreír solo de pensar en ellos. Me encanta la forma en que brillan, y aún así se debe ver mucho más bonito cuando te sonríes o te enojas jaja.</p>
+
+      <p>Tu voz, igual, tiene una melodía tan hermosa. Cada vez que la escucho, siento como si el mundo se detuviera por un momento, como si todo lo demás desapareciera, y solo estuvieras tú allí, hablándome con esa suavidad tan única.</p>
+
+      <p>Desde que te conocí, he admirado tantas cosas de ti, no solo tu belleza, sino también tu forma de ser, tu personalidad, y esa luz que transmites. No puedo evitar pensar lo afortunado que soy por haberte conocido. Mis intenciones contigo no son lastimarte ni mucho menos jugar contigo, quiero demostrarte que hay alguien que ama el brillo de tus ojitos, tu forma de ser, todo de ti, hasta tus locuras.</p>
+
+      <p>Con esto te quiero decir que siempre estaré aquí, apoyándote, amándote y valorando cada momento que compartimos. Eres lo más hermoso que me ha pasado y, aunque la vida pueda ser incierta, te prometo que estaré a tu lado, con todo mi corazón.</p>
+
+      <div class="footer">
+        <p>Con cariño, <br> Daniel</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function abrirCarta() {
+      const carta = document.getElementById("carta");
+      carta.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
